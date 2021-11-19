@@ -10,7 +10,7 @@ export default class Card extends Component {
     } = this.props;
 
     return (
-      <div data-testid="product">
+      <div data-testid="product" className="cardContainer">
         <h3>{ title }</h3>
         <img src={ thumbnail } alt={ title } />
         <span>{ price }</span>

@@ -4,18 +4,26 @@ import { Link } from 'react-router-dom';
 
 export default class Header extends Component {
   render() {
-    const { renderCards } = this.props;
+    const {
+      renderCards,
+      handleChange,
+      name,
+    } = this.props;
 
     return (
-      <div>
-        <div>
+      <div className="header">
+        <div className="inputClass">
           <input
+            type="text"
+            name="name"
+            // value={ name }
             data-testid="query-input"
+            onChange={ (event) => handleChange(event) }
           />
           <button
             type="button"
             data-testid="query-button"
-            onClick={ () => renderCards('agro') }
+            onClick={ () => renderCards(name) }
           >
             Pesquisar
           </button>
@@ -34,4 +42,6 @@ export default class Header extends Component {
 
 Header.propTypes = {
   renderCards: PropTypes.func.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
 };
