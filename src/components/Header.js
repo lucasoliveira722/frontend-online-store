@@ -3,20 +3,27 @@ import { Link } from 'react-router-dom';
 
 export default class Header extends Component {
   render() {
+    const { renderCards } = this.props;
+    
     return (
       <div>
-        <input />
+        <div>
+          <input
+            data-testid="query-input"
+          />
+          <button
+            data-testid="query-button"
+            onClick={ () => renderCards('agro') }
+          >
+            Pesquisar
+          </button>
+        </div>
         <h2
           data-testid="home-initial-message"
         >
           Digite algum termo de pesquisa ou escolha uma categoria.
         </h2>
-        {/* <button
-          type="button"
-          data-testid="shopping-cart-button"
-        >
-          Carrinho
-        </button> */}
+
         <Link data-testid="shopping-cart-button" to="/cart">Carrinho</Link>
       </div>
     );
