@@ -15,7 +15,6 @@ export default class InputCategories extends Component {
             name="categoryName"
             value={ categoryName }
             id={ categoryName }
-            // data-testid="category"
           />
           { categoryName }
         </label>
