@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { getCategories } from '../services/api';
 import InputCategories from './InputCategories';
 
@@ -27,6 +28,7 @@ export default class Aside extends Component {
 
   render() {
     const { arrayCategory } = this.state;
+    const { handleClick } = this.props;
     return (
       <aside>
         {
@@ -34,6 +36,8 @@ export default class Aside extends Component {
             <InputCategories
               key={ category.id }
               categoryName={ category.name }
+              categoryId={ category.id }
+              handleClick={ handleClick }
             />
           ))
         }
@@ -41,3 +45,7 @@ export default class Aside extends Component {
     );
   }
 }
+
+Aside.propTypes = {
+  handleClick: PropTypes.func.isRequired,
+};

@@ -33,3 +33,11 @@ export function getProductsFromCategoryAndQuery(query) {
 
   // return fetchBoth;
 }
+
+export function getProductsFromCategory(categoryId) {
+  const urlCategory = `https://api.mercadolibre.com/sites/MLB/search?category=${categoryId}`;
+  const fetchCategory = fetch(urlCategory)
+    .then((response) => response.json())
+    .then((data) => (data));
+  return fetchCategory;
+}
