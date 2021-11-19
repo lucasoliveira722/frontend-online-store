@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 export default class Header extends Component {
   render() {
     const { renderCards } = this.props;
-    
+
     return (
       <div>
         <div>
@@ -12,6 +13,7 @@ export default class Header extends Component {
             data-testid="query-input"
           />
           <button
+            type="button"
             data-testid="query-button"
             onClick={ () => renderCards('agro') }
           >
@@ -29,3 +31,7 @@ export default class Header extends Component {
     );
   }
 }
+
+Header.propTypes = {
+  renderCards: PropTypes.func.isRequired,
+};
