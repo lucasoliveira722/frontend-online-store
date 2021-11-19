@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import Header from '../components/Header';
 import Aside from '../components/Aside';
 import Main from '../components/Main';
-import { getProductsFromCategoryAndQuery } from '../services/api';
+import {
+  getProductsFromCategoryAndQuery,
+  getProductsFromCategory,
+} from '../services/api';
 
 export default class Home extends Component {
   constructor() {
@@ -15,13 +18,24 @@ export default class Home extends Component {
 
     this.renderCards = this.renderCards.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange({ target }) {
-    const { name, value } = target;
-    // const value = target.type === 'checkbox' ? target.checked : target.value;
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
       [name]: value,
+    });
+  }
+
+  async handleClick({ target }) {
+    const { value } = target;
+    console.log(value);
+    const getCategory = await getProductsFromCategory(value);
+
+    this.setState({
+      cardProduct: getCategory.results,
     });
   }
 
@@ -47,7 +61,9 @@ export default class Home extends Component {
           handleChange={ this.handleChange }
           renderCards={ this.renderCards }
         />
-        <Aside />
+        <Aside
+          handleClick={ this.handleClick }
+        />
         <Main
           card={ cardProduct }
         />

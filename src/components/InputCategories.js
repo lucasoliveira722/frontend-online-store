@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export default class InputCategories extends Component {
   render() {
-    const { categoryName } = this.props;
+    const { categoryName, handleClick, categoryId } = this.props;
     return (
       <div>
         <label
@@ -13,8 +13,9 @@ export default class InputCategories extends Component {
           <input
             type="radio"
             name="categoryName"
-            value={ categoryName }
+            value={ categoryId }
             id={ categoryName }
+            onClick={ (event) => handleClick(event) }
           />
           { categoryName }
         </label>
@@ -24,5 +25,7 @@ export default class InputCategories extends Component {
 }
 
 InputCategories.propTypes = {
+  categoryId: PropTypes.string.isRequired,
   categoryName: PropTypes.string.isRequired,
+  handleClick: PropTypes.func.isRequired,
 };
