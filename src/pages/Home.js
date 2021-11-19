@@ -11,7 +11,7 @@ export default class Home extends Component {
 
     this.state = {
       cardProduct: [],
-    }
+    };
 
     this.renderCards = this.renderCards.bind(this);
   }
@@ -24,12 +24,13 @@ export default class Home extends Component {
     const getProducts = await getProductsFromCategoryAndQuery(query);
 
     this.setState({
-      cardProduct: getProducts,
+      cardProduct: getProducts.results,
     });
   }
 
   render() {
     const { cardProduct } = this.state;
+
     return (
       <div>
         <div>
