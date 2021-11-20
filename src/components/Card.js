@@ -16,7 +16,14 @@ export default class Card extends Component {
         <h3>{ title }</h3>
         <img src={ thumbnail } alt={ title } />
         <span>{ price }</span>
-        <Link to={ `/product/${id}` }>Detalhes</Link>
+        <Link
+          data-testid="product-detail-link"
+          to={
+            { pathname: `/product/${id}`, state: id }
+          }
+        >
+          Detalhes
+        </Link>
       </div>
     );
   }

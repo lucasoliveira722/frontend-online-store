@@ -41,3 +41,11 @@ export function getProductsFromCategory(categoryId) {
     .then((data) => (data));
   return fetchCategory;
 }
+
+export function getProductDetailsFromId(productId) {
+  const urlProductDetail = `https://api.mercadolibre.com/items/${productId}`;
+  const fetchCategory = fetch(urlProductDetail)
+    .then((response) => response.json())
+    .then((data) => (data));
+  return fetchCategory;
+}
