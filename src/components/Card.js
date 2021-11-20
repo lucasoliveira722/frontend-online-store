@@ -24,3 +24,4 @@ Card.propTypes = {
   price: PropTypes.number.isRequired,
   thumbnail: PropTypes.string.isRequired,
 };
+// Pare de dar erro, github. Não sou eu que sou burro.
