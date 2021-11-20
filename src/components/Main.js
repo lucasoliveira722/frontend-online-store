@@ -15,6 +15,7 @@ export default class Main extends Component {
               title={ item.title }
               thumbnail={ item.thumbnail }
               price={ item.price }
+              id={ item.id }
             />
           ))
         }
