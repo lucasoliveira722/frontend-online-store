@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Header from '../components/Header';
 import Aside from '../components/Aside';
@@ -54,6 +55,8 @@ export default class Home extends Component {
       name,
     } = this.state;
 
+    const { sendToCart } = this.props;
+
     return (
       <div className="container">
         <Header
@@ -66,8 +69,13 @@ export default class Home extends Component {
         />
         <Main
           card={ cardProduct }
+          sendToCart={ sendToCart }
         />
       </div>
     );
   }
 }
+
+Home.propTypes = {
+  sendToCart: PropTypes.func.isRequired,
+};
