@@ -24,6 +24,12 @@ export default class Card extends Component {
         >
           Detalhes
         </Link>
+        <input
+          type="button"
+          data-testid="product-add-to-cart"
+          value="Adicionar ao carrinho"
+          // onClick={ sendToCart() }
+        />
       </div>
     );
   }
