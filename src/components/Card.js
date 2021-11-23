@@ -9,6 +9,7 @@ export default class Card extends Component {
       price,
       thumbnail,
       id,
+      sendToCart,
     } = this.props;
 
     return (
@@ -24,11 +25,16 @@ export default class Card extends Component {
         >
           Detalhes
         </Link>
+        <Link
+          to="/cart"
+        >
+          Carrinho
+        </Link>
         <input
           type="button"
           data-testid="product-add-to-cart"
           value="Adicionar ao carrinho"
-          // onClick={ sendToCart() }
+          onClick={ () => sendToCart(id, price, thumbnail, title) }
         />
       </div>
     );
@@ -40,5 +46,5 @@ Card.propTypes = {
   price: PropTypes.number.isRequired,
   thumbnail: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
+  sendToCart: PropTypes.func.isRequired,
 };
-// Pare de dar erro, github. Não sou eu que sou burro.

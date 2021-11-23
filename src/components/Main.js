@@ -4,7 +4,7 @@ import Card from './Card';
 
 export default class Main extends Component {
   render() {
-    const { card } = this.props;
+    const { card, sendToCart } = this.props;
 
     return (
       <main>
@@ -16,6 +16,7 @@ export default class Main extends Component {
               thumbnail={ item.thumbnail }
               price={ item.price }
               id={ item.id }
+              sendToCart={ sendToCart }
             />
           ))
         }
@@ -26,4 +27,5 @@ export default class Main extends Component {
 
 Main.propTypes = {
   card: PropTypes.instanceOf(Array).isRequired,
+  sendToCart: PropTypes.func.isRequired,
 };
