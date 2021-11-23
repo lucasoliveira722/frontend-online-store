@@ -25,11 +25,6 @@ export default class Card extends Component {
         >
           Detalhes
         </Link>
-        <Link
-          to="/cart"
-        >
-          Carrinho
-        </Link>
         <input
           type="button"
           data-testid="product-add-to-cart"
